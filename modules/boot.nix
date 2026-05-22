@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 {
   boot.loader.systemd-boot.enable = lib.mkForce false;
@@ -19,6 +19,4 @@
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
   boot.plymouth.enable = true;
-
-  environment.systemPackages = [ pkgs.sbctl ];
 }
