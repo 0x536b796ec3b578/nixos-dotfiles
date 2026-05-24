@@ -15,7 +15,7 @@
 
   programs.dank-material-shell = {
     enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
 
     enableSystemMonitoring = true;
     enableClipboardPaste = true;
@@ -23,11 +23,7 @@
 
     dgop.package = inputs.dgop.packages.${pkgs.system}.default;
 
-    niri = {
-      enableSpawn = true;
-      enableKeybinds = false;
-      includes.enable = false;
-    };
+    niri.includes.enable = false;
   };
 
   programs.niri.config = builtins.readFile ./config/niri/config.kdl;
