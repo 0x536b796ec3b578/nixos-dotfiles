@@ -2,6 +2,7 @@
 
 {
   imports = [
+    inputs.niri.homeModules.niri
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
   ];
@@ -20,6 +21,8 @@
     enableClipboardPaste = true;
     enableDynamicTheming = true;
 
+    dgop.package = inputs.dgop.packages.${pkgs.system}.default;
+
     niri = {
       enableSpawn = true;
       enableKeybinds = false;
@@ -27,5 +30,5 @@
     };
   };
 
-  xdg.configFile."niri/config.kdl".source = ./config/niri/config.kdl;
+  programs.niri.config = builtins.readFile ./config/niri/config.kdl;
 }
